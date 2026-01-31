@@ -1,0 +1,335 @@
+/* ---------- GENERAL ---------- */
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding-top: 80px;
+  /* Space for fixed navbar */
+  background: #F8F7F6;
+  color: #333;
+}
+
+.page-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+
+/* ---------- NAVBAR Adjustments ---------- */
+/* Using navbar.css styles, but ensuring back link and button work */
+.back-btn {
+  text-decoration: none;
+  transition: transform 0.2s;
+  display: inline-flex;
+}
+
+.back-btn:hover {
+  transform: translateX(-5px);
+}
+
+.btn-cta {
+  background: linear-gradient(135deg, #f39c12, #ff8a00);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+  border: none;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+/* ---------- INFO DE LA ORDEN ---------- */
+.info-card {
+  flex: 0 0 350px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  height: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.info-card .card-title {
+  font-family: 'Belanosima', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.info-group {
+  margin-bottom: 20px;
+}
+
+.info-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.info-group p {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+  color: #333;
+}
+
+.info-total {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f1f1;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.total-label {
+  font-size: 1.3rem;
+  font-family: 'Belanosima', sans-serif;
+  font-weight: 500;
+  color: #333;
+}
+
+.total-amount {
+  font-size: 1.6rem;
+  color: #ff8a00;
+  font-weight: 600;
+}
+
+.total-items {
+  font-size: 0.95rem;
+  color: #777;
+  margin: 0;
+}
+
+/* ---------- RIGHT COLUMN ---------- */
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 320px;
+}
+
+/* ---------- PLATOS CARD ---------- */
+.platos-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.platos-card h3 {
+  font-family: 'Belanosima', sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.platos-card h3 i {
+  color: #ff8a00;
+  width: 22px;
+}
+
+.platos-card .subtext {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.platos-card input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1.5px solid #eee;
+  background-color: #fcfcfc;
+  font-family: 'Quicksand', sans-serif;
+  color: #555;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.platos-card input[type="text"]:focus {
+  border-color: #ff8a00;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 138, 0, 0.1);
+  outline: none;
+}
+
+/* ---------- GRID DE PLATOS ---------- */
+.platos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.plato-disponible {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 15px;
+  padding: 12px 18px;
+  transition: all 0.3s ease;
+}
+
+.plato-disponible:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-color: #ff8a0033;
+}
+
+.plato-disponible img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.plato-info {
+  flex: 1;
+}
+
+.plato-info h5,
+.plato-info h6 {
+  font-family: 'Belanosima', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.plato-info p {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.plato-info strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #ff8a00;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.btn-add {
+  background: #f8f9fa;
+  color: #555;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #eee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.btn-add:hover {
+  background: #ff8a00;
+  color: white;
+  border-color: #ff8a00;
+  transform: rotate(90deg);
+}
+
+/* ---------- PLATOS EN LA ORDEN ---------- */
+.plato-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.plato-item:last-child {
+  border-bottom: none;
+}
+
+.plato-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fdfdfd;
+  padding: 5px 15px;
+  border-radius: 50px;
+  border: 1.5px solid #eee;
+}
+
+.btn-qty {
+  background: transparent;
+  border: none;
+  color: #ff8a00;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+.btn-qty:hover {
+  transform: scale(1.2);
+}
+
+.plato-controls span {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.plato-controls strong {
+  color: #ff8a00;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+/* SCROLLBARS */
+#platosDisponibles,
+#platosActuales {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+#platosDisponibles::-webkit-scrollbar,
+#platosActuales::-webkit-scrollbar {
+  width: 6px;
+}
+
+#platosDisponibles::-webkit-scrollbar-thumb,
+#platosActuales::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 10px;
+}
+
+#platosDisponibles::-webkit-scrollbar-thumb:hover,
+#platosActuales::-webkit-scrollbar-thumb:hover {
+  background: #ddd;
+}

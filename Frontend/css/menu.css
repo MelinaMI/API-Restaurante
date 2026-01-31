@@ -1,0 +1,373 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: #F8F7F6;
+  padding-top: 80px;
+  /* Space for fixed navbar */
+}
+
+/* --PLATOS --*/
+/* Contenedor de platos como grid */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+  max-width: 90%;
+  /* igual que filtros */
+  margin: 20px auto;
+  /* centrado horizontal */
+  justify-content: center;
+  /* mantiene el tamaño mínimo de 250px cuando hay pocas cards */
+}
+
+/* Card de cada plato */
+.plato-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plato-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del plato */
+.plato-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Contenido */
+.plato-card h4 {
+  margin: 15px 15px 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Belanosima', sans-serif;
+}
+
+.plato-card p {
+  margin: 0 15px 10px;
+  font-size: 0.9rem;
+  color: #666;
+  flex-grow: 1;
+}
+
+.plato-card strong {
+  margin: 0 15px 10px;
+  color: #ff8a00;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Botón Agregar - Expert UI */
+.plato-card button {
+  margin: 0 15px 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f39c12, #ff8a00);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.2);
+}
+
+.plato-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+  background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+.plato-card button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+
+/*FILTROS*/
+
+/* Contenedor de filtros */
+.filtros-container {
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  align-items: flex-end;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Inputs y selects */
+.filter-item {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  /* Limpiamos el padding anterior */
+}
+
+.filter-label {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+  padding-left: 5px;
+  margin-bottom: 0;
+}
+
+/* Estilos para los elementos de formulario del contenedor */
+.filtros-container .form-control,
+.filtros-container .form-select {
+  border-radius: 12px;
+  border: 1.5px solid #eee;
+  padding: 12px 15px;
+  background-color: #fcfcfc;
+  font-family: 'Quicksand', sans-serif;
+  color: #555;
+  transition: all 0.3s ease;
+  height: auto;
+}
+
+.filtros-container .form-control:focus,
+.filtros-container .form-select:focus {
+  border-color: #ff8a00;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 138, 0, 0.1);
+  outline: none;
+}
+
+/* Botón de limpiar filtros - Expert UI */
+#reset-filters {
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  border: none;
+  background: #f8f9fa;
+  /* Color neutro para no competir con el pedido */
+  color: #636e72;
+  margin-top: 0;
+  width: 100%;
+}
+
+#reset-filters:hover {
+  background: #dfe6e9;
+  color: #2d3436;
+  transform: translateY(-2px);
+}
+
+#reset-filters i {
+  font-size: 1.1rem;
+}
+
+/* Para que sea responsivo en móviles */
+@media (max-width: 768px) {
+  .filtros-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/*-------------MODAL-------------*/
+.modal-confirmation {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.modal-confirmation.show {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-wrapper {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: modal-pop 0.3s ease-out;
+}
+
+@keyframes modal-pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header-success {
+  background: linear-gradient(135deg, #f39c12, #ff8a00);
+  padding: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.modal-header-success i {
+  width: 60px;
+  height: 60px;
+  stroke-width: 2.5;
+  margin-bottom: 15px;
+}
+
+.modal-header-success h2 {
+  font-family: 'Belanosima', sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.modal-body-success {
+  padding: 30px;
+  text-align: center;
+}
+
+.modal-body-success p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.order-details-summary {
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+}
+
+.summary-item .label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.summary-item .value-highlight {
+  color: #333;
+  font-weight: 700;
+}
+
+.summary-item .total-value {
+  color: #ff8a00;
+  font-size: 1.1rem;
+}
+
+.modal-body-success .small-text {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.modal-footer-success {
+  padding: 0 30px 30px;
+}
+
+.btn-primary-confirm {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary-confirm:hover {
+  background-color: #000;
+}
+
+/* -- EMPTY STATE -- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+  flex: 1;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.empty-state i {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  color: #f5b700;
+  animation: bounce 1.5s infinite;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  font-family: 'Belanosima', sans-serif;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}

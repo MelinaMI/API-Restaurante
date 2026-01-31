@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Junipero | Editar Orden</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/editarOrden.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <script src="https://unpkg.com/lucide"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container px-4">
+      <a class="navbar-brand logo-container" href="index.html">
+        <img src="./assets/logo.jpg" alt="Logo" class="me-2" style="height: 45px; border-radius: 8px;">
+      </a>
+      <div class="d-flex align-items-center">
+        <a href="Ordenes.html" class="back-btn me-3">
+          <i data-lucide="arrow-left" style="color: #333;"></i>
+        </a>
+        <div class="edit-order-info">
+          <h2 style="font-family: 'Belanosima', sans-serif; font-weight: 500; font-size: 1.25rem; margin-bottom: 0;">
+            Editar Orden</h2>
+          <span class="text-muted" style="font-size: 0.85rem;">#<span id="orderNumber"></span></span>
+        </div>
+      </div>
+      <div class="ms-auto">
+        <button id="btnGuardarCambios" class="btn-cta" style="padding: 10px 25px; font-size: 0.95rem;">Guardar
+          Cambios</button>
+      </div>
+    </div>
+  </nav>
+  <main>
+
+    <div class="page-container">
+      <!-- Card izquierda -->
+      <div class="info-card">
+        <h5 class="card-title">Información de la Orden</h5>
+
+        <div class="info-group">
+          <label>Tipo de Orden</label>
+          <p id="deliveryTypeContainer"></p>
+        </div>
+
+        <div class="info-group" id="dynamicFieldContainer">
+          <!-- Se completa por JS -->
+        </div>
+
+        <div class="info-group">
+          <label>Nota general</label>
+          <p id="orderNotes"></p>
+        </div>
+
+        <div class="info-total">
+          <div class="total-row">
+            <span class="total-label">Total</span>
+            <strong class="total-amount" id="totalOrden">$0.00</strong>
+          </div>
+          <p class="total-items"><span id="totalItems">0</span> Platos</p>
+        </div>
+      </div> <!-- Cierre de info-card -->
+
+      <!-- Columna derecha -->
+      <div class="right-column">
+        <!-- Platos en la Orden -->
+        <section class="platos-card">
+          <h3><i data-lucide="shopping-cart"></i> Platos en la Orden</h3>
+          <p class="subtext">Ajusta las cantidades de los platos (mínimo 1)</p>
+          <div id="platosActuales"></div>
+        </section>
+
+        <!-- Agregar Platos -->
+        <section class="platos-card">
+          <h3><i data-lucide="utensils"></i> Agregar Platos</h3>
+          <p class="subtext">Selecciona platos del menú para agregar a la orden</p>
+          <input type="text" id="searchPlates" placeholder="Buscar platos...">
+          <div id="platosDisponibles" class="platos-grid"></div>
+        </section>
+      </div>
+  </main>
+  </div>
+  <!-- Footer Reducido -->
+  <footer style="background-color: #fff; padding: 60px 0 20px; border-top: 1px solid #eee;">
+    <div style="text-align: center; color: #999; font-size: 0.9rem;">
+      <p style="margin-bottom: 0;">&copy; 2026 San Junipero. Diseñado y desarrollado por <strong>Miranda Ibarra
+          Melina.</strong></p>
+    </div>
+  </footer>
+
+
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- Bootstrap JS Bundle (incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/editarOrden.js"></script>
+
+</body>
+
+</html>
